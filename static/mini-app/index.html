@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Everlight Physics Mini App</title>
+    <link rel="stylesheet" href="app.css" />
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  </head>
+  <body>
+    <main class="app" id="app">
+      <header class="app__header">
+        <div>
+          <h1>Подготовка к экзаменам по физике</h1>
+          <p class="app__subtitle">Выберите режим: теория или практика.</p>
+        </div>
+        <div class="app__user" id="userBadge">Гость</div>
+      </header>
+
+      <section class="card" id="modeSelection">
+        <button class="primary" data-mode="theory">Теория</button>
+        <button class="secondary" data-mode="practice">Практика</button>
+      </section>
+
+      <section class="card hidden" id="theorySection">
+        <h2>Теория</h2>
+        <p>Выберите тему, чтобы открыть PDF и пройти тест.</p>
+        <div class="chip-group" id="theoryTopics"></div>
+        <div class="panel hidden" id="theoryDetails">
+          <div class="panel__row">
+            <a class="link" id="theoryPdf" href="#" target="_blank" rel="noreferrer">Открыть PDF</a>
+            <button class="ghost" id="startQuiz">Начать тест</button>
+          </div>
+          <div id="quizContainer" class="hidden"></div>
+          <div class="panel__footer" id="theorySummary"></div>
+        </div>
+      </section>
+
+      <section class="card hidden" id="practiceSection">
+        <h2>Практика</h2>
+        <p>Выберите раздел и тему с заданиями.</p>
+        <div class="chip-group" id="practiceSections"></div>
+        <div class="chip-group hidden" id="practiceSubsections"></div>
+        <div class="panel hidden" id="practiceTaskPanel">
+          <div class="task" id="practiceTask"></div>
+          <div class="task__controls">
+            <input type="number" inputmode="numeric" class="answer" id="practiceAnswer" placeholder="Введите число" />
+            <button class="primary" id="submitPractice">Ответить</button>
+          </div>
+          <div class="task__actions">
+            <button class="ghost" id="showHint">Подсказка</button>
+            <button class="ghost" id="skipTask">Пропустить</button>
+          </div>
+          <div class="panel__footer" id="practiceFeedback"></div>
+        </div>
+      </section>
+
+      <section class="card hidden" id="reportSection">
+        <h2>Отчет</h2>
+        <p>Отправьте результат преподавателю или боту.</p>
+        <button class="primary" id="sendReport">Отправить отчет</button>
+        <pre class="report" id="reportPreview"></pre>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
